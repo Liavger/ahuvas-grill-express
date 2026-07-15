@@ -1,0 +1,44 @@
+@import "tailwindcss";
+
+:root {
+  --cream: #F5F0E8;
+  --charcoal: #1A1612;
+  --brick: #8B2A1F;
+  --brick-dark: #6E2118;
+  --amber: #C4793A;
+  --secondary: #6B5F54;
+  --faint: #9C8F84;
+  --border: #D4C9B8;
+}
+
+html { scroll-behavior: smooth; overflow-x: hidden; }
+body {
+  background: var(--cream);
+  color: var(--charcoal);
+  font-family: "DM Sans", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+* { box-sizing: border-box; }
+
+section, header, footer, nav { max-width: 100vw; overflow-x: hidden; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Marquee ticker */
+.marquee-track {
+  animation: marquee 55s linear infinite;
+}
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}

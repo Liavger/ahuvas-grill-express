@@ -21,7 +21,7 @@ async function getReviews() {
 
   try {
     const fields = ["displayName", "rating", "userRatingCount", "googleMapsUri", "reviews"].join(",");
-    const res = await fetch(`https://places.googleapis.com/v1/places/${placeId}?reviews_sort=newest`, {
+    const res = await fetch(`https://places.googleapis.com/v1/places/${placeId}`, {
       headers: {
         "X-Goog-Api-Key": apiKey,
         "X-Goog-FieldMask": fields,

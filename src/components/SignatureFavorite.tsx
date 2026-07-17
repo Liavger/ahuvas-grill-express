@@ -12,7 +12,7 @@ export default function SignatureFavorite() {
         </motion.p>
         <div className="relative">
           <motion.div initial={{ opacity: 0, scale: 0.96 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 1 }}
-            className="relative overflow-hidden" style={{ width: "100%", height: 300 }}
+            className="relative overflow-hidden h-[300px] w-full sm:h-[420px] sm:w-[75%] lg:h-[520px] lg:w-[65%]"
           >
             <Image src="/images/shwarma_plate_website.png" alt="Baby chicken shawarma" fill style={{ objectFit: "cover" }} sizes="(max-width:768px) 100vw, 65vw" />
           </motion.div>

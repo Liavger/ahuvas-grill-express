@@ -34,20 +34,26 @@ async function getReviews() {
     if (!res.ok) throw new Error(`Places API error ${res.status}`);
     const place = await res.json();
 
-    const reviews: ReviewItem[] = (place.reviews || []).map(
-      (r: {
-        authorAttribution?: { displayName?: string; photoUri?: string };
-        rating?: number;
-        text?: { text?: string };
-        relativePublishTimeDescription?: string;
-      }) => ({
-        author: r.authorAttribution?.displayName || "Anonymous",
-        authorPhoto: r.authorAttribution?.photoUri,
-        rating: r.rating || 5,
-        text: r.text?.text || "",
-        relativeTime: r.relativePublishTimeDescription,
-      })
-    );
+    const reviews: ReviewItem[] = (place.reviews || [])
+      .map(
+        (r: {
+          authorAttribution?: { displayName?: string; photoUri?: string };
+          rating?: number;
+          text?: { text?: string };
+          relativePublishTimeDescription?: string;
+        }) => ({
+          author: r.authorAttribution?.displayName || "Anonymous",
+          authorPhoto: r.authorAttribution?.photoUri,
+          rating: r.rating || 5,
+          text: r.text?.text || "",
+          relativeTime: r.relativePublishTimeDescription,
+        })
+      )
+      // Only feature 4-5 star reviews in the on-site carousel. The real
+      // aggregate rating/count above still reflects every review on Google,
+      // and "View all reviews on Google" links to the unfiltered list -
+      // this only curates which quotes get spotlighted here.
+      .filter((r: ReviewItem) => r.rating >= 4);
 
     if (!reviews.length) throw new Error("No reviews returned");
 

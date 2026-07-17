@@ -17,7 +17,7 @@ export default function OurSpace() {
           style={{
             position: "relative",
             width: "100%",
-            aspectRatio: "4 / 3",
+            aspectRatio: "1086 / 1448",
             borderRadius: 10,
             overflow: "hidden",
             flex: "0 0 58%",

@@ -15,7 +15,7 @@ export default function OurStory() {
             </p>
           </motion.div>
           <motion.div initial={{ opacity: 0, scale: 0.97 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.8, delay: 0.15 }}
-            className="relative mt-8 md:mt-0 overflow-hidden" style={{ height: 320 }} >
+            className="relative mt-8 md:mt-0 overflow-hidden h-[280px] sm:h-[380px] lg:h-[440px]">
             <Image src="/images/ahuvas_outside_website.png" alt="Ahuvas Grill Express storefront" fill style={{ objectFit: "cover" }} sizes="(max-width:768px) 100vw, 50vw" />
           </motion.div>
         </div>
